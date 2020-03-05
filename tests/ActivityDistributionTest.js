@@ -66,17 +66,17 @@ describe('set entries', function() {
             {
                 id: 1,
                 weight: 2,
-                busy: []
+                disable: []
             },
             {
                 id: 2,
                 weight: 1,
-                busy: []
+                disable: []
             },
             {
                 id: 3,
                 weight: 1,
-                busy: []
+                disable: []
             },
         ], 4);
         expect(ad.getEntryCount()).toBe(3);
@@ -97,17 +97,17 @@ describe('process', function() {
             {
                 id: 1,
                 weight: 2,
-                busy: []
+                disable: []
             },
             {
                 id: 2,
                 weight: 1,
-                busy: []
+                disable: []
             },
             {
                 id: 3,
                 weight: 1,
-                busy: []
+                disable: []
             },
         ], 4);
         ad.process(1);
@@ -115,24 +115,24 @@ describe('process', function() {
     });
 });
 
-describe('process with busy', function() {
+describe('process with disable', function() {
     it ('should process', function() {
         const ad = new ActivityDistribution();
         ad.setEntries([
             {
                 id: 1,
                 weight: 2,
-                busy: [0, 1, 2, 3, 4]
+                disable: [0, 1, 2, 3, 4]
             },
             {
                 id: 2,
                 weight: 1,
-                busy: [5, 9]
+                disable: [5, 9]
             },
             {
                 id: 3,
                 weight: 1,
-                busy: [8, 9, 10, 11]
+                disable: [8, 9, 10, 11]
             },
         ], 12);
         ad.process(1);

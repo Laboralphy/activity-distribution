@@ -40,9 +40,9 @@ class ActivityDistribution {
         });
         this.feed((iEntry, iSlot) => {
             const oDataEntry = data[iEntry];
-            const {busy} = oDataEntry;
+            const {disable} = oDataEntry;
             const value = 0;
-            const enabled = !busy.includes(iSlot);
+            const enabled = !disable.includes(iSlot);
             return {
                 value, enabled
             };
@@ -227,7 +227,7 @@ class ActivityDistribution {
             const s = [];
             for (let iSlot = 0; iSlot < this.getSlotCount(); ++iSlot) {
                 const ges = this.getEntrySlot(iEntry, iSlot);
-                s.push(ges.enabled ? ges.value : 'X');
+                s.push(ges.enabled ? ges.value : '.');
             }
             a.push(s.join(' '));
         }
