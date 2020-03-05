@@ -221,6 +221,19 @@ class ActivityDistribution {
         }
     }
 
+    /**
+     * parcoure l'integralité des slot et applique une fonction
+     * @param f
+     */
+    walk(f) {
+        for (let iEntry = 0; iEntry < this.getEntryCount(); ++iEntry) {
+            for (let iSlot = 0; iSlot < this.getSlotCount(); ++iSlot) {
+                const entry = this.getEntrySlot(iEntry, iSlot);
+                f(entry, iEntry, iSlot);
+            }
+        }
+    }
+
     render() {
         const a = [];
         for (let iEntry = 0; iEntry < this.getEntryCount(); ++iEntry) {

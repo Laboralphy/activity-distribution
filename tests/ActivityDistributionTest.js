@@ -139,3 +139,97 @@ describe('process with disable', function() {
         console.log('\n' + ad.render());
     });
 });
+
+describe('process two times', function() {
+    it ('should process', function() {
+        const ad = new ActivityDistribution();
+        ad.setEntries([
+            {
+                id: 1,
+                weight: 3,
+                disable: []
+            },
+            {
+                id: 2,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 3,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 4,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 5,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 6,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 7,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 8,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 9,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 10,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 11,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 12,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 13,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 14,
+                weight: 1,
+                disable: []
+            },
+            {
+                id: 15,
+                weight: 1,
+                disable: []
+            },
+        ], 12);
+        ad.process(1);
+        // toutes les valeur > 0 devienne disabled
+        ad.walk(entry => {
+            if (entry.value > 0) {
+                entry.disabled = true;
+            }
+        });
+        ad.process(2);
+
+        console.log('\n' + ad.render());
+    });
+});
+
